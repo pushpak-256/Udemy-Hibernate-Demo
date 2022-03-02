@@ -23,5 +23,6 @@
 	<classpathentry kind="lib" path="lib/stax-ex-1.8.jar"/>
 	<classpathentry kind="lib" path="lib/txw2-2.3.1.jar"/>
 	<classpathentry kind="lib" path="D:/chrome Downloads/jars/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="lib/ojdbc6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
