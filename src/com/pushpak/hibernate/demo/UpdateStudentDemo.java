@@ -37,6 +37,19 @@ public class UpdateStudentDemo
 
 	    System.out.println("\nupdated student with ID = " + student.getId()+"\nAfter"+student);
 
+	    System.out.println("\n\n\n");
+	    
+	    //new code
+	    session =factory.getCurrentSession();
+	    session.beginTransaction();
+	    
+	    //will update email according to first and last name 
+	    int s=session.createQuery("update Student s set email=s.firstName||'.'||s.lastName||'@xyz.com'").executeUpdate();
+	    
+	    if (s>0)System.out.println(s+" records updates");
+	    
+	    //commit transaction
+	    session.getTransaction().commit();
 
 	} catch (Exception e)
 	{
