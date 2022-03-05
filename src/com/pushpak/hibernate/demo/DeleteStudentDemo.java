@@ -19,32 +19,45 @@ public class DeleteStudentDemo
 
 	try
 	{
-	    int id =2;
 
-	    // start transaction
+	    int id = 2;
+	    // method 1 DELETE
+//	    // start transaction
+//	    session.beginTransaction();
+//
+//	    // retrieve the student
+//	    Student student = session.get(Student.class, id);
+//
+//	    //check if student is present in table
+//	    if (student != null)
+//	    {
+//		 System.out.println("deleting " + student);
+//		 
+//		// delete student
+//		session.delete(student);
+//
+//		// commit transaction
+//		session.getTransaction().commit();
+//		
+//		System.out.println("deleted student with id = " + id + "\n");
+//	    } 
+//	    else
+//	    {
+//		System.out.println("Student with id " + id + " not found.");
+//	    }
+
+	    // method 2 DELETE
 	    session.beginTransaction();
 
-	    // retrieve the student
-	    Student student = session.get(Student.class, id);
+	    int res = session.createQuery("delete from Student where id=" + id).executeUpdate();
 
-	    //check if student is present in table
-	    if (student != null)
-	    {
-		 System.out.println("deleting " + student);
-		 
-		// delete student
-		session.delete(student);
+	    session.getTransaction().commit();
 
-		// commit transaction
-		session.getTransaction().commit();
-		
-		System.out.println("deleted student with id = " + id + "\n");
-	    } 
+	    if (res > 0)
+		System.out.println("\nDONE!");
 	    else
-	    {
-		System.out.println("Student with id " + id + " not found.");
-	    }
-
+		System.out.println("Student not found with id " + id);
+	    
 	} catch (Exception e)
 	{
 	    e.printStackTrace();
