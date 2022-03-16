@@ -10,18 +10,22 @@ import org.hibernate.annotations.GenericGenerator;
 public class InstructorDetail
 {
     // define the fields // annotate the fields with db column names
-    
-        @Id
-        @GenericGenerator(name = "myGenerator", strategy = "increment")
-	@GeneratedValue(generator = "myGenerator")
-	@Column(name="id")
-	private int id;
+
+    @Id
+    @GenericGenerator(name = "myGenerator", strategy = "increment")
+    @GeneratedValue(generator = "myGenerator")
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "ytChannel")
     private String ytChannel;
 
-    @Column(name="hobby")
+    @Column(name = "hobby")
     private String hobby;
+
+    // add new field
+    @OneToOne(mappedBy="instructorDetail", cascade =CascadeType.ALL)
+    private Instructor instructor;
 
     // create constructor
     public InstructorDetail() {
@@ -62,6 +66,16 @@ public class InstructorDetail
     public void setHobby(String hobby)
     {
 	this.hobby = hobby;
+    }
+
+    public Instructor getInstructor()
+    {
+	return instructor;
+    }
+
+    public void setInstructor(Instructor instructor)
+    {
+	this.instructor = instructor;
     }
 
     // generate to string
