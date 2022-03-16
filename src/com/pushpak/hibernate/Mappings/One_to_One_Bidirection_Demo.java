@@ -24,7 +24,7 @@ public class One_to_One_Bidirection_Demo
 	    session.beginTransaction();
 	    
 	    //1 get InstructorDetail obj 
-	    int id = 4;
+	    int id = 54;
 	   
 	     InstructorDetail instructorDetail = session.get(InstructorDetail.class, id);
 	    
@@ -42,10 +42,12 @@ public class One_to_One_Bidirection_Demo
 
 	} catch (Exception e)
 	{
-	    System.out.println("something went wrong while saving ");
+	    System.out.println("something went wrong  ");
 	    e.printStackTrace();
 	} finally
 	{
+	    // to fix connection leak issue
+	    session.close();
 	    factory.close();
 	}
     }
