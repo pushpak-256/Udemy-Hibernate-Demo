@@ -2,6 +2,8 @@ package com.pushpak.hibernate.demo.entities;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
+
 //annotate the class as an entity and map to db table
 @Entity
 @Table(name = "instructor")
@@ -10,7 +12,8 @@ public class Instructor
 
     // define the fields // annotate the fields with db column names
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GenericGenerator(name = "myGenerator", strategy = "increment")
+    @GeneratedValue(generator = "myGenerator")
     @Column(name = "id")
     private int id;
 
