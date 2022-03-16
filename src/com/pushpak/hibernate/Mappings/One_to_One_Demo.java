@@ -22,7 +22,7 @@ public class One_to_One_Demo
 	{
 	
 	    //create the objects
-	    Instructor instructor = new Instructor("Pushpak", "Bhagat", "myemail@xyz.com");
+	    Instructor instructor = new Instructor("Pushpak", "Bhagat");
 	    
 	    InstructorDetail instructorDetail = new InstructorDetail("YT-Channel", "hobby");
 	    

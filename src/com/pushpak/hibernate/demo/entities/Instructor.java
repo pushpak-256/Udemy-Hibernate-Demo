@@ -42,6 +42,13 @@ public class Instructor
 	this.email = email;
     }
 
+   //constructor to auto generate email
+    public Instructor(String firstName, String lastName) {
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.email = firstName + "." + lastName + "@gmail.com";
+    }
+    
     // generate getter setter
     public int getId()
     {
