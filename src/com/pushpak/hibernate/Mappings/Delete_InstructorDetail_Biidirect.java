@@ -24,7 +24,7 @@ public class Delete_InstructorDetail_Biidirect
 	    session.beginTransaction();
 	    
 	    //1 get InstructorDetail obj 
-	    int id = 5;
+	    int id = 3;
 	   
 	     InstructorDetail instructorDetail = session.get(InstructorDetail.class, id);
 	    
@@ -33,6 +33,9 @@ public class Delete_InstructorDetail_Biidirect
 	    
 	    // 2 .print Associated Instructor;    
 	     System.out.println("\n"+instructorDetail.getInstructor()+"\n");
+	     
+	     //ReMoVe BI-directional reference
+	     instructorDetail.getInstructor().setInstructorDetail(null);
 	     
 	     //3 delete InstructorDetail //NOTE: this will delete associated Instructor too
 	     session.delete(instructorDetail);
